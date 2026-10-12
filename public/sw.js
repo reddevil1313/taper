@@ -15,7 +15,7 @@ self.addEventListener("fetch", (e) => {
   const url = new URL(e.request.url);
   if (e.request.method !== "GET") return;
   if (url.hostname.endsWith("data.gov.sg")) return; // always live
-  if (url.origin === location.origin || url.hostname.endsWith("gstatic.com") || url.hostname.endsWith("googleapis.com")) {
+  if (url.origin === location.origin) {
     e.respondWith(
       caches.match(e.request).then((hit) => {
         const net = fetch(e.request).then((res) => {

@@ -1,3 +1,9 @@
+/* Self-hosted Barlow (Latin subset) so the app and its wallpapers render offline. */
+@font-face { font-family: "Barlow Condensed"; font-weight: 700; font-style: normal; font-display: swap; src: url("./fonts/BarlowCondensed-Bold.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 600; font-style: normal; font-display: swap; src: url("./fonts/BarlowCondensed-SemiBold.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-weight: 400; font-style: normal; font-display: swap; src: url("./fonts/Barlow-Regular.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-weight: 500; font-style: normal; font-display: swap; src: url("./fonts/Barlow-Medium.woff2") format("woff2"); }
+@font-face { font-family: "Barlow"; font-weight: 600; font-style: normal; font-display: swap; src: url("./fonts/Barlow-SemiBold.woff2") format("woff2"); }
 /* Race-bib layout: one big countdown numeral, condensed display type, navy ink with an amber accent. */
 :root {
   --bg: #eef1f6;

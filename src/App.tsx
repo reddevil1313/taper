@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Plan } from "./ui/Plan";
+import { Settings } from "./ui/Settings";
 import { Today } from "./ui/Today";
 
 export type Tab = "today" | "plan" | "wallpapers" | "settings";
@@ -17,7 +18,7 @@ export function App() {
         {tab === "today" && <Today />}
         {tab === "plan" && <Plan />}
         {tab === "wallpapers" && <p className="hint">Wallpapers are coming in the next commit.</p>}
-        {tab === "settings" && <p className="hint">Settings are coming in the next commit.</p>}
+        {tab === "settings" && <Settings />}
       </main>
       <nav className="tabs" aria-label="Sections">
         {TABS.map(([id, label]) => (

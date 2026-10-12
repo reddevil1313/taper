@@ -8,7 +8,18 @@ export type Tab = "today" | "plan" | "wallpapers" | "settings";
 const TABS: Array<[Tab, string]> = [["today", "Today"], ["plan", "Plan"], ["wallpapers", "Wallpapers"], ["settings", "Settings"]];
 
 export function App() {
-  const [tab, setTab] = useState<Tab>(() => (location.hash.slice(1) as Tab) || "today");
+  const [tab, setTab] = useState<Tab>(() => {
+    const t = location.hash.slice(1) as Tab;
+    return TABS.some(([id]) => id === t) ? t : "today";
+  });
+  useEffect(() => {
+    const onHash = () => {
+      const t = location.hash.slice(1) as Tab;
+      if (TABS.some(([id]) => id === t)) setTab(t);
+    };
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
   useEffect(() => {
     history.replaceState(null, "", `#${tab}`);
     window.scrollTo(0, 0);
